@@ -1,0 +1,4 @@
+version_control: github
+src_repo: coreos/ignition
+tag_prefix: "v"
+separator: "."
