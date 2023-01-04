@@ -6,7 +6,7 @@
 
 Name:           ignition
 Version:        2.14.0
-Release:        1
+Release:        2
 Summary:        First boot installer and configuration tool
 License:        Apache-2.0
 URL:            https://github.com/coreos/ignition
@@ -14,6 +14,7 @@ Source0:        https://github.com/coreos/ignition/archive/v%{version}/%{name}-%
 
 BuildRequires: libblkid-devel
 BuildRequires: golang >= 1.10
+BuildRequires: systemd
 
 # Requires for 'disks' stage
 Recommends: btrfs-progs
@@ -251,6 +252,9 @@ install -p -m 0755 ./ignition %{buildroot}/%{dracutlibdir}/modules.d/30ignition
 %{_bindir}/ignition-validate
 
 %changelog
+* Wed Jan 04 2023 liukuo <liukuo@kylinos.cn> - 2.14.0-2
+- Fix %{_unitdir} not identified
+
 * Fri May 27 2022 duyiwei <duyiwei@kylinos.cn> - 2.14.0-1
 - update version to 2.14.0
 - fix CVE-2022-1706
