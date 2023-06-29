@@ -6,11 +6,12 @@
 
 Name:           ignition
 Version:        2.14.0
-Release:        2
+Release:        3
 Summary:        First boot installer and configuration tool
 License:        Apache-2.0
 URL:            https://github.com/coreos/ignition
 Source0:        https://github.com/coreos/ignition/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0:         fix-clang.patch
 
 BuildRequires: libblkid-devel
 BuildRequires: golang >= 1.10
@@ -252,6 +253,9 @@ install -p -m 0755 ./ignition %{buildroot}/%{dracutlibdir}/modules.d/30ignition
 %{_bindir}/ignition-validate
 
 %changelog
+* Tue Jun 27 2023 yoo <sunyuechi@iscas.ac.cn> - 2.14.0-3
+- fix clang build error
+
 * Wed Jan 04 2023 liukuo <liukuo@kylinos.cn> - 2.14.0-2
 - Fix %{_unitdir} not identified
 

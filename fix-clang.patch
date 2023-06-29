@@ -1,0 +1,19 @@
+diff -u -r ignition-2.14.0/internal/providers/virtualbox/virtualbox.c ignition-2.14.0/internal/providers/virtualbox/virtualbox.c
+--- ignition-2.14.0/internal/providers/virtualbox/virtualbox.c	2022-05-13 07:10:27.000000000 +0800
++++ ignition-2.14.0/internal/providers/virtualbox/virtualbox.c	2023-06-15 22:56:22.000000000 +0800
+@@ -127,6 +127,7 @@
+ 	switch (msg->hdr.rc) {
+ 	case VINF_SUCCESS:
+ 	case VERR_BUFFER_OVERFLOW:
++		{
+ 		// allocate buffer
+ 		; // labels can't point to declarations
+ 		size_t buf_size = params[3].u.value32;
+@@ -144,6 +145,7 @@
+ 		*value = buf;
+ 		buf = NULL;
+ 		*size = buf_size;
++		}
+ 		return VINF_SUCCESS;
+ 	case VERR_NOT_FOUND:
+ 		*value = NULL;
